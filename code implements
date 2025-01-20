@@ -1,0 +1,41 @@
+The code implements a chatbot system that uses natural language processing (NLP) to detect user intents and provide responses. Here is a simplified explanation of the steps:
+
+1. **Import Libraries**: Libraries like NumPy, pandas, scikit-learn, spaCy, TextBlob, and others are imported for data manipulation, machine learning, and NLP tasks.
+
+2. **Load Dataset**: A dataset of customer support queries, intents, and responses is loaded and basic details are printed.
+
+3. **Data Cleaning**: Rows with missing values in critical columns are removed, and an additional column combining instructions and responses is created for exploratory analysis.
+
+4. **Train-Test Split**: The dataset is split into training and testing sets, where `X` contains user queries, and `y` contains their corresponding intents.
+
+5. **Text Vectorization**: A TfidfVectorizer is used to convert text data into numerical format suitable for machine learning models. It reduces the vocabulary size by selecting the top 5000 features.
+
+6. **Train Model**: A Logistic Regression model is trained on the vectorized data to classify user intents.
+
+7. **Model Evaluation**: The trained model is evaluated on the test set, with accuracy and a classification report printed. Intent distribution is visualized using a bar chart.
+
+8. **Save Model**: The vectorizer and trained model are saved to disk using `pickle` for later use in deployment.
+
+9. **Data Augmentation**: A function `synonym_replacement` replaces words in a text with their synonyms for generating augmented data.
+
+10. **Translation**: The `translate_text` function uses Google Translate to convert text to a target language.
+
+11. **Language Detection**: The `detect_language` function identifies the language of the input text using `langid`.
+
+12. **Entity Extraction**: The `extract_entities` function uses spaCy to extract named entities from the input text.
+
+13. **Sentiment Analysis**: The `analyze_sentiment` function evaluates the sentiment polarity of the input text using TextBlob.
+
+14. **Conversation Logging**: User inputs and chatbot responses are logged to a file for tracking interactions.
+
+15. **Response Generation**: The `generate_response` function predicts the intent of the input query and generates a corresponding response. If the model's confidence is low, a fallback response is provided.
+
+16. **Enhanced Chatbot**: The `enhanced_chatbot` function combines all features:
+    - Detects the input language.
+    - Translates non-English inputs to English.
+    - Extracts entities and analyzes sentiment.
+    - Generates an intent-based response.
+    - Translates the response back to the original language (if needed).
+    - Logs the interaction.
+
+17. **Examples**: The chatbot is tested with sample inputs in Spanish, French, and English. Responses are printed to demonstrate its functionality.
